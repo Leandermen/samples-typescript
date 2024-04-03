@@ -9,7 +9,7 @@ import FeatureLayer from '@arcgis/core/layers/FeatureLayer.js';
 const app = document.querySelector<HTMLDivElement>('#app')!
 
 //Only if you are using an API key
-//esriConfig.apiKey = 'AAPK186a83caa95d407bb6f7dfb77ade59b3cJhAe6UvpDaLsyBgL_okul9Ta2i9ugPDE-v9vWhIbCgcaYm3scprVY8kIRbemSLw'
+//esriConfig.apiKey = 'MyAPIKey'
 
 // Create a map and add a feature layer
 const layer = new FeatureLayer({
