@@ -1,0 +1,80 @@
+@import "https://js.arcgis.com/4.29/@arcgis/core/assets/esri/themes/light/main.css";
+.panelheader{
+  position:absolute;
+  top:10px;
+  left:10px;
+  display:flex;
+  width:auto;
+  height: auto;
+  flex-direction: column;
+  color:white;
+  text-align: justify;
+  justify-content: space-between;
+}
+.headertitle .headersubtitle{
+  height: 20ox;
+  width:100%;
+  line-height: 20px;
+  text-align-last: justify;
+}
+.headertitle{
+  font-size: 20px;
+  letter-spacing:2.5px;
+}
+.headersubtitle{
+  font-size: 12px;
+  letter-spacing: 16px;
+}
+.headercredits{
+  width:auto;
+  height: 12px;
+  font-size: 10px;
+  flex-direction: row;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+}
+html, body, #viewDiv{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.panel-side {
+  margin-top: 8%;
+  box-sizing: border-box;
+  width: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  background-color:transparent;
+  overflow: auto;
+  z-index: 60;
+  float: right;
+}
+div .panel-side ul {
+  list-style:none;
+  margin: 0;
+  padding: 0;    
+}
+.panel-side li {
+  list-style: none;
+  padding: 10px 20px;    
+}
+.resultado {
+  border-radius: 200px;
+  cursor: pointer;
+  margin: 2px 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: right;
+}
+.resultado:hover {
+  color: orange;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.resultado:focus {
+  color: white;
+  background-color: darkblue;
+}
