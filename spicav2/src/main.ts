@@ -40,49 +40,37 @@ let view = new MapView({
     ui:{
         components:[],
     },
+    popup: {
+      dockEnabled: true,
+      dockOptions: {
+        position: "top-right",
+        breakpoint: false
+      },
+      actions: []
+    }
 })
- 
 
+view.when (freezeMap);
 
-function freezeMap(view: __esri.MapView) {
-    view.popup.dockEnabled = true;
-    view.popup.actions = []; // Removes the zoom action on the popup
-    function stopEvtPropagation(event) {event.stopPropagation();}// stops propagation of default behavior when an event fires
-    view.ui.components = ["attribution"];// exclude the zoom widget from the default UI
-    view.on("mouse-wheel", stopEvtPropagation);// disable mouse wheel scroll zooming on the view
-    view.on("double-click", stopEvtPropagation);// disable zooming via double-click on the view
-    // disable zooming out via double-click + Control on the view
-    view.on("double-click", ["Control"], stopEvtPropagation);
-    // disables pinch-zoom and panning on the view
-    view.on("drag", stopEvtPropagation);
-    // disable the view's zoom box to prevent the Shift + drag
-    // and Shift + Control + drag zoom gestures.
-    view.on("drag", ["Shift"], stopEvtPropagation);
-    view.on("drag", ["Shift", "Control"], stopEvtPropagation);
+function freezeMap(){
+  function stopEvtPropagation(event: any) {event.stopPropagation();}
+  view.ui.components = ["attribution"];
+  view.on("mouse-wheel", stopEvtPropagation);
+  view.on("double-click", stopEvtPropagation);
+  view.on("double-click", ["Control"], stopEvtPropagation);
+  view.on("drag", stopEvtPropagation);
+  view.on("drag", ["Shift"], stopEvtPropagation);
+  view.on("drag", ["Shift", "Control"], stopEvtPropagation);
+  view.on("key-down", (event) => {
+    const prohibitedKeys = ["+", "-", "Shift", "_", "=", "ArrowUp", "ArrowDown", "ArrowRight", "ArrowLeft"];
+    const keyPressed = event.key;
+    if (prohibitedKeys.indexOf(keyPressed) !== -1) {
+      event.stopPropagation();
+    }
+  });
 
-    // prevents zooming with the + and - keys
-    view.on("key-down", (event) => {
-      const prohibitedKeys = [
-        "+",
-        "-",
-        "Shift",
-        "_",
-        "=",
-        "ArrowUp",
-        "ArrowDown",
-        "ArrowRight",
-        "ArrowLeft"
-      ];
-      const keyPressed = event.key;
-      if (prohibitedKeys.indexOf(keyPressed) !== -1) {
-        event.stopPropagation();
-      }
-    });
-
-    return view;
-  }
-
-view.when(freezeMap);
+  return view;
+}
 
 view.on('click', function(event){
     console.log(event.mapPoint)
