@@ -1,0 +1,1 @@
+import{aX as u,aY as a,aZ as i}from"./index-DuJN_NeP.js";const c=96;function p(n,t){const r=t||n.extent,o=n.width,e=u(r==null?void 0:r.spatialReference);return r&&o?r.width/o*e*a*c:0}function h(n,t){return n/(u(t)*a*c)}function m(n,t,r){return f(n,t)&&s(n,r)}function f(n,t){return t===0||i(n,t)||n<t}function s(n,t){return t===0||i(n,t)||n>t}export{m as d,p as i,h as o};
