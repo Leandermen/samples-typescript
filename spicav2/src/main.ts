@@ -3,7 +3,7 @@ import MapView from "@arcgis/core/views/MapView.js";
 import WebMap from "@arcgis/core/WebMap.js"
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
 import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer.js";
-import  SimpleFillSymbol from "@arcgis/core/symbols/SimpleFillSymbol.js";
+import SimpleFillSymbol from "@arcgis/core/symbols/SimpleFillSymbol.js";
 
 const app = document.querySelector<HTMLDivElement>('#viewDiv')!
 
@@ -18,8 +18,9 @@ let zz = new SimpleFillSymbol({
   }
 })
 
+
 let layerdpa = new FeatureLayer({
-  url:"https://arcgis.mma.gob.cl/server/rest/services/SIMBIO/SIMBIO_DIVISION_ADMINISTRATIVA/MapServer/0",
+  url:"https://services1.arcgis.com/LsoiDXzijohT7g97/arcgis/rest/services/REG_SIMPLE/FeatureServer",
   definitionExpression:"",
   copyright:"Datos: Subsecretaría de Desarrollo Regional y Administrativo",
   effect: "drop-shadow(-10px, 10px, 6px)"
