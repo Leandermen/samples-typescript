@@ -1,0 +1,87 @@
+@import "https://js.arcgis.com/4.29/@arcgis/core/assets/esri/themes/light/main.css";
+
+html, body{
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+#main-container {
+  flex-grow: 1;
+  background-color: #f0f0f0;
+  padding: 0px;
+  width: 80%;
+  position: relative; 
+}
+
+#side-panel {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #000;
+  padding: 2em 1em;
+  text-align: left;
+  width: 20%;
+  margin: 2em 1em;
+  background: #000;
+  font-weight: 900;
+  position:relative;
+  border: 4px solid #00bf29;
+  font-weight: 900;
+  color: #00bf29;
+}
+
+#side-panel:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid #00bf29;
+  border-top: 10px solid #00bf29;
+  border-bottom: 10px solid transparent;
+  right: 20px;
+  bottom: -23px;
+}
+
+#side-panel:after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid #000;
+  border-top: 10px solid #000;
+  border-bottom: 10px solid transparent;
+  right: 24px;
+  bottom: -13px;
+}
+
+#loading-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #00bf29;
+  width: 0;
+  animation: load 10s steps(10) forwards;
+}
+
+@keyframes load {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#cursor {
+  animation: blink 0.5s step-end infinite alternate;
+}
